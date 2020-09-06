@@ -48,13 +48,14 @@ const resultsEl = document.getElementById('track')
         }).then(function(json) { 
          let resultHTML = '';
          json.data.forEach(obj => {
-             console.log(obj.images.fixed_width.url)
+            //  console.log(obj.images.fixed_width.url)
              const url = obj.images.fixed_width.url
              const width = obj.images.fixed_width.width
              const height = obj.images.fixed_width.height
     
              resultHTML += `<div class="slick">
-                                <picture><img src="${url}" alt="${obj.title}"></picture>
+                                <img src="${url}" alt="${obj.title}">
+                                <div class="card"></div>
                             </div>`;
          })
     
