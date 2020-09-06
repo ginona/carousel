@@ -83,21 +83,7 @@ a {
   height: 100%;
 }
 
-.slick h4 {
-  position: absolute;
-  z-index: 1;
-  font-size: 22px;
-  line-height: 23px;
-  color: #ffffff;
-  padding: 15px;
-}
-
-.slick h4 small {
-  font-size: 15px;
-  display: block;
-}
-
-.slick a img {
+.slick img {
   -o-object-fit: cover;
      object-fit: cover;
   height: 300px;
@@ -109,7 +95,7 @@ a {
   transition: .3s ease-in-out;
 }
 
-.slick a img:hover {
+.slick img:hover {
   opacity: .85;
 }
 

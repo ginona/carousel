@@ -62,21 +62,6 @@ a{
     box-sizing: border-box;
     display: flex;
     height: 100%;
-    h4{
-        position: absolute;
-        z-index: 1;
-        font-size: 22px;
-        line-height: 23px;
-        color: #ffffff;
-        padding: 15px;
-        // top: 20%;
-        small{
-            font-size: 15px;
-            display: block;
-        }
-
-    }
-    a{
         img{
             object-fit: cover;
             height: 300px;
@@ -88,7 +73,7 @@ a{
                 opacity: .85;
             }
         }
-    }
+    
 }
 
 .slick-arrow{
