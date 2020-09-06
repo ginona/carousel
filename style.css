@@ -149,6 +149,57 @@ a {
           box-sizing: border-box;
 }
 
+.icons {
+  opacity: 0.5;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.icons:hover {
+  opacity: 1;
+}
+
+.icon-heart {
+  background-image: url("../assets/icon-fav-hover.svg");
+}
+
+.icon-heart--active {
+  background-image: url("../assets/icon-fav-active.svg") !important;
+}
+
+.icon-download {
+  background-image: url("../assets/icon-download.svg");
+}
+
+.icon-max {
+  background-image: url("../assets/icon-max.svg");
+}
+
+.icon-delete {
+  background-image: url("../assets/icon_trash.svg");
+  visibility: hidden;
+}
+
+.group-icons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 @media screen and (min-width: 768px) {
   .slick-list {
     overflow: hidden;

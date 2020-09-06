@@ -55,7 +55,14 @@ const resultsEl = document.getElementById('track')
     
              resultHTML += `<div class="slick">
                                 <img src="${url}" alt="${obj.title}">
-                                <div class="card"></div>
+                                <div class="card">
+                                <div class="group-icons">
+                                    <div id="${obj.id}-remove" class="icons icon-delete"></div>
+                                    <div id="${obj.id}-add" class="icons icon-heart"></div>
+                                    <div id="${obj.id}-download" class="icons icon-download"></div>
+                                    <div id="${obj.id}-max" class="icons icon-max"></div>
+                                </div>
+                                </div>
                             </div>`;
          })
     
