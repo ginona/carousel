@@ -40,7 +40,6 @@ a{
     padding: 10px 0;
     margin: 0px auto;
     max-width: 90vw;
-    // overflow: hidden;
     overflow-x: scroll;
     scroll-behavior: smooth;
 }
@@ -56,22 +55,14 @@ a{
 
 .slick{
     position: relative;
-    width: 275px;
+    width: 100%;
     padding: 0 18px;
     float: left;
     box-sizing: border-box;
     display: flex;
     height: 100%;
         img{
-            object-fit: cover;
             height: 300px;
-            width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,.5);
-            transition: .3s ease-in-out;
-            &:hover{
-                opacity: .85;
-            }
         }
     
 }

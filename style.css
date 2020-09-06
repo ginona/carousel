@@ -72,7 +72,7 @@ a {
 
 .slick {
   position: relative;
-  width: 275px;
+  width: 100%;
   padding: 0 18px;
   float: left;
   -webkit-box-sizing: border-box;
@@ -84,19 +84,7 @@ a {
 }
 
 .slick img {
-  -o-object-fit: cover;
-     object-fit: cover;
   height: 300px;
-  width: 100%;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-
-.slick img:hover {
-  opacity: .85;
 }
 
 .slick-arrow {
