@@ -4,9 +4,6 @@ const track = document.getElementById('track');
 const slickList = document.getElementById('slick-list');
 const slick = document.querySelectorAll('.slick');
 
-// const API = 'https://api.giphy.com/v1/gifs'; 
-// const API_KEY ='TwJ1SaQHCIBd0qczJHRc3ioNpKdTxEYs';
-
 const slickWidth = 275;
 
 
@@ -39,38 +36,85 @@ const resultsEl = document.getElementById('track')
 
 
 
-   function search(q){
-    const apikey = 'TwJ1SaQHCIBd0qczJHRc3ioNpKdTxEYs'
-    const path = 'https://api.giphy.com/v1/gifs/search?api_key='+apikey+'&q='+q
+//    function search(q){
+//     const apikey = 'TwJ1SaQHCIBd0qczJHRc3ioNpKdTxEYs'
+//     const path = 'https://api.giphy.com/v1/gifs/search?api_key='+apikey+'&q='+q
 
-    fetch(path).then(function(response){
-        return response.json() 
-        }).then(function(json) { 
-         let resultHTML = '';
-         json.data.forEach(obj => {
-            //  console.log(obj.images.fixed_width.url)
-             const url = obj.images.fixed_width.url
-             const width = obj.images.fixed_width.width
-             const height = obj.images.fixed_width.height
+//     fetch(path).then(function(response){
+//         return response.json() 
+//         }).then(function(json) { 
+//          let resultHTML = '';
+//          json.data.forEach(obj => {
+//             //  console.log(obj.images.fixed_width.url)
+//              const url = obj.images.fixed_width.url
+//              const width = obj.images.fixed_width.width
+//              const height = obj.images.fixed_width.height
     
-             resultHTML += `<div class="slick">
-                                <img src="${url}" alt="${obj.title}">
-                                <div class="card">
-                                <div class="group-icons">
-                                    <div id="${obj.id}-remove" class="icons icon-delete"></div>
-                                    <div id="${obj.id}-add" class="icons icon-heart"></div>
-                                    <div id="${obj.id}-download" class="icons icon-download"></div>
-                                    <div id="${obj.id}-max" class="icons icon-max"></div>
-                                </div>
-                                </div>
-                            </div>`;
-         })
+//              resultHTML += `<div class="slick">
+//                                 <img src="${url}" alt="${obj.title}">
+//                                 <div class="card">
+//                                 <div class="group-icons">
+//                                     <div id="${obj.id}-remove" class="icons icon-delete"></div>
+//                                     <div id="${obj.id}-add" class="icons icon-heart"></div>
+//                                     <div id="${obj.id}-download" class="icons icon-download"></div>
+//                                     <div id="${obj.id}-max" class="icons icon-max"></div>
+//                                 </div>
+//                                 </div>
+//                             </div>`;
+//          })
     
-         resultsEl.innerHTML = resultHTML
-      }).catch(function(err) { 
-         console.log(err.message)   
-       })
+//          resultsEl.innerHTML = resultHTML
+//       }).catch(function(err) { 
+//          console.log(err.message)   
+//        })
 
-   }
+//    }
 
-   search()
+function search(data){
+    let resultHTML = '';
+    data.data.forEach(obj => {
+         const url = obj.images.fixed_width.url
+         const width = obj.images.fixed_width.width
+         const height = obj.images.fixed_width.height
+
+         resultHTML += `<div class="slick">
+                            <img src="${url}" alt="${obj.title}">
+                            <div class="card">
+                            <div class="group-icons">
+                                <div id="${obj.id}-remove" class="icons icon-delete"></div>
+                                <div id="${obj.id}-add" class="icons icon-heart"></div>
+                                <div id="${obj.id}-download" class="icons icon-download"></div>
+                                <div id="${obj.id}-max" class="icons icon-max"></div>
+                            </div>
+                            </div>
+                        </div>`;
+     })
+
+     resultsEl.innerHTML = resultHTML
+}
+
+   function addToLocalStorage(name,value) {
+    let existing = localStorage.getItem(name);
+    existing = existing ? JSON.parse(existing) : [];
+    existing.push(value);
+    localStorage.setItem(name,JSON.stringify(existing)); 
+}
+
+function addtoFavorites(gif) {
+    document.getElementById(`${gif.id}-add`).classList.add('icon-heart--active')
+    addToLocalStorage('Favorites',gif)
+}
+
+async function getGif(){
+    const API_KEY = 'TwJ1SaQHCIBd0qczJHRc3ioNpKdTxEYs'
+    const API = 'https://api.giphy.com/v1/gifs/trending'; 
+
+    const apiURL = API+'?api_key='+API_KEY+'&limit=5&rating=g';
+
+    const response = await fetch(apiURL);
+    const data = await response.json();
+    console.log(data);
+    search(data);
+}
+
+getGif()
