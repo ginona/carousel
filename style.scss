@@ -64,11 +64,9 @@ a{
         img{
             height: 300px;
         }
-    
 }
 
 .slick-arrow{
-    // border-radius: 30px;
     background-color: #ffffff;
     position: absolute;
     z-index: 4;
@@ -76,15 +74,22 @@ a{
     height: 48px;
     text-align: center;
     box-shadow: 0 2px 5px 9 rgba(0,0,0,.15);
-    border: 1px solid black;
+    border: 1px solid #572EE5;
     cursor: pointer;
     &:focus{
         outline: 0;
     }
     i{
         font-size: 18px;
-        font-weight: 900;
-        color: rgba(0,0,0,.7);
+        font-weight: lighter;
+        color: #572EE5;
+    }
+}
+
+.slick-arrow:hover{
+    background-color: #572EE5;
+    i{
+        color: #ffffff;
     }
 }
 
